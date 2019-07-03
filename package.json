@@ -14,7 +14,9 @@
     "jshint": "jshint ./lib ./tests",
     "mocha": "mocha --check-leaks -R spec -u exports tests/*.test.js tests/**/*.test.js",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- tests/*.test.js tests/**/*.test.js",
-    "test": "npm run-script jshint && npm run-script mocha"
+    "test": "npm run-script jshint && npm run-script mocha",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -36,7 +38,8 @@
   "dependencies": {
     "bluebird": "^3.0.0",
     "inflection": "^1.7.1",
-    "lodash": "^4.8.2"
+    "lodash": "^4.8.2",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "body-parser": "^1.13.3",
@@ -49,5 +52,6 @@
     "restify": "^4.0.3",
     "sequelize": "^3.5.1",
     "sqlite3": "^3.0.9"
-  }
+  },
+  "snyk": true
 }
