@@ -2,6 +2,7 @@
 
 var Promise = require('bluebird'),
     request = require('request'),
+    { Op } = require('sequelize'),
     expect = require('chai').expect,
     _ = require('lodash'),
     rest = require('../../lib'),
@@ -27,7 +28,7 @@ describe('Resource(basic)', function() {
       scopes: {
         userNameStartsWithA: {
           where: {
-            username: { $like: 'a%' }
+            username: { [Op.like]: 'a%' }
           }
         }
       },
